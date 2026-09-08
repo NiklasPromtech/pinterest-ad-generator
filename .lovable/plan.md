@@ -1,23 +1,25 @@
 # Pinterest Ad Short Generator — Design Exploration
 
 ## Goal
-Produce and present three distinct visual design directions for the Pinterest ad-short generator tool, covering both the public landing page and the in-app studio (chat-to-video workflow). The chosen aesthetic is playful/pop, inspired by Pinterest's own visual language.
+Explore three visual design directions for the tool, covering the public landing page and the studio workspace. Mood: playful pop, drawing on Pinterest's own visual language.
 
-## Scope
-1. **Landing page** — hero, value proposition, how-it-works, and a clear CTA.
-2. **Studio UI** — the chat-to-video workspace: chat panel on the left, generated clip preview and action panel on the right.
+## The landing page idea
+The page is built around one big, inviting drop area — the centre of the whole design. It makes obvious, before anyone reads a word, that you can throw things in:
 
-## Approach
-- Generate three rendered HTML + Tailwind CSS design directions.
-- Lock the playful-pop palette across all three, but vary composition, density, hierarchy, and motion register so each direction has a clear point of view.
-- Present the directions for selection before any code is written.
+- Product photos and images
+- A webpage or product URL
+- A Pinterest pin or board link
 
-## Deliverables
-1. Three rendered design directions (landing + studio concepts).
-2. A concise picker for the user to choose one direction.
-3. After selection: implement the chosen direction as real project pages/components.
+Around the drop area, the page shows what happens next: the back-and-forth video making where you say what you want changed and it rebuilds — not a black box. It ends with a single clear invitation to start.
 
-## Technical notes
-- The project is a fresh TanStack Start app with Tailwind v4 and shadcn/ui tokens in `src/styles.css`.
-- The chosen direction's color tokens, typography, and layout will be ported into the project's design system.
-- No backend or auth work is required for this design phase.
+## The studio idea
+The workspace where the conversation happens: what you've said on one side, the growing ad on the other — the clip preview, the ideas and decisions behind it, and the plain-language box for "what should be different?".
+
+## How we'll do it
+1. Generate three rendered design directions, each showing the landing page with the drop area plus the studio workspace.
+2. The playful-pop colours stay fixed across all three; they differ in layout, density, how loud they are, and how motion feels.
+3. You pick one, then it gets built for real.
+
+## Notes
+- Fresh project, so nothing existing to work around; the chosen direction's colours, type, and layout become the project's style.
+- No accounts or data storage needed for this design stage — the pages will show realistic stand-in content.
