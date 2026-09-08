@@ -18,6 +18,7 @@ import {
 import { useRef, useState } from "react";
 
 import adImage from "@/assets/pinterest-interior-ad.jpg";
+import { SiteFooter, SiteHeader } from "@/components/studio/studio-chrome";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -74,16 +75,7 @@ function Index() {
 
   return (
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
-      <nav className="mx-auto flex h-20 max-w-[1240px] items-center justify-between px-5 md:px-8" aria-label="Primary navigation">
-        <a href="#top" className="flex items-center gap-3 font-semibold tracking-tight">
-          <BrandMark small />
-          <span>Pinmaker</span>
-        </a>
-        <div className="flex items-center gap-2">
-          <a href="#studio" className="hidden px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground sm:block">See the studio</a>
-          <Button className="h-11 rounded-full px-5 shadow-none" onClick={startProject}>Create an ad</Button>
-        </div>
-      </nav>
+      <SiteHeader />
 
       <section id="top" className="mx-auto max-w-[1240px] px-5 pb-24 pt-12 text-center md:px-8 md:pt-20">
         <div className="mx-auto max-w-3xl">
@@ -201,6 +193,7 @@ function Index() {
           </div>
         </div>
       </section>
+      <SiteFooter />
     </main>
   );
 }
