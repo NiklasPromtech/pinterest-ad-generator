@@ -18,6 +18,7 @@ import {
 import { useRef, useState } from "react";
 
 import adImage from "@/assets/pinterest-interior-ad.jpg";
+import { SiteFooter, SiteHeader } from "@/components/studio/studio-chrome";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
