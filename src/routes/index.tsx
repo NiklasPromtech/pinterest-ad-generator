@@ -8,7 +8,7 @@ import {
   MessageCircleMore,
   MoreHorizontal,
   Paperclip,
-  Pinterest,
+  Pin,
   Play,
   RefreshCw,
   Send,
@@ -49,7 +49,7 @@ function BrandMark({ small = false }: { small?: boolean }) {
       className={`grid shrink-0 place-items-center rounded-full bg-primary text-primary-foreground ${small ? "size-8" : "size-10"}`}
       aria-hidden="true"
     >
-      <Pinterest className={small ? "size-4" : "size-5"} strokeWidth={3} />
+      <span className={small ? "text-sm font-bold" : "text-base font-bold"}>P</span>
     </span>
   );
 }
@@ -111,7 +111,7 @@ function Index() {
             <div className="mx-auto mt-8 grid max-w-2xl gap-3 sm:grid-cols-3">
               <Button variant="secondary" className="h-14 rounded-2xl shadow-none" onClick={() => fileRef.current?.click()}><ImageIcon /> Add photos</Button>
               <Button variant="secondary" className="h-14 rounded-2xl shadow-none" onClick={() => document.querySelector<HTMLInputElement>("#source-link")?.focus()}><Link2 /> Product page</Button>
-              <Button variant="secondary" className="h-14 rounded-2xl shadow-none" onClick={() => document.querySelector<HTMLInputElement>("#source-link")?.focus()}><Pinterest /> Pinterest board</Button>
+              <Button variant="secondary" className="h-14 rounded-2xl shadow-none" onClick={() => document.querySelector<HTMLInputElement>("#source-link")?.focus()}><Pin /> Pinterest board</Button>
             </div>
 
             <div className="mx-auto mt-4 flex max-w-2xl items-center rounded-full bg-secondary p-1.5 pl-5 ring-1 ring-border focus-within:ring-2 focus-within:ring-primary/30">
