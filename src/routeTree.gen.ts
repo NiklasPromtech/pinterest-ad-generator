@@ -14,6 +14,11 @@ import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as StudioRouteImport } from './routes/studio'
 import { Route as StudioIndexRouteImport } from './routes/studio.index'
+import { Route as StudioAdIdRouteImport } from './routes/studio.$adId'
+import { Route as StudioAdIdIndexRouteImport } from './routes/studio.$adId.index'
+import { Route as StudioAdIdIdeasRouteImport } from './routes/studio.$adId.ideas'
+import { Route as StudioAdIdImagesRouteImport } from './routes/studio.$adId.images'
+import { Route as StudioAdIdStoryboardRouteImport } from './routes/studio.$adId.storyboard'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -40,19 +45,53 @@ const StudioIndexRoute = StudioIndexRouteImport.update({
   path: '/',
   getParentRoute: () => StudioRoute,
 } as any)
+const StudioAdIdRoute = StudioAdIdRouteImport.update({
+  id: '/$adId',
+  path: '/$adId',
+  getParentRoute: () => StudioRoute,
+} as any)
+const StudioAdIdIndexRoute = StudioAdIdIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => StudioAdIdRoute,
+} as any)
+const StudioAdIdIdeasRoute = StudioAdIdIdeasRouteImport.update({
+  id: '/ideas',
+  path: '/ideas',
+  getParentRoute: () => StudioAdIdRoute,
+} as any)
+const StudioAdIdImagesRoute = StudioAdIdImagesRouteImport.update({
+  id: '/images',
+  path: '/images',
+  getParentRoute: () => StudioAdIdRoute,
+} as any)
+const StudioAdIdStoryboardRoute = StudioAdIdStoryboardRouteImport.update({
+  id: '/storyboard',
+  path: '/storyboard',
+  getParentRoute: () => StudioAdIdRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/how-it-works': typeof HowItWorksRoute
   '/pricing': typeof PricingRoute
   '/studio': typeof StudioRouteWithChildren
+  '/studio/$adId': typeof StudioAdIdRouteWithChildren
   '/studio/': typeof StudioIndexRoute
+  '/studio/$adId/ideas': typeof StudioAdIdIdeasRoute
+  '/studio/$adId/images': typeof StudioAdIdImagesRoute
+  '/studio/$adId/storyboard': typeof StudioAdIdStoryboardRoute
+  '/studio/$adId/': typeof StudioAdIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/how-it-works': typeof HowItWorksRoute
   '/pricing': typeof PricingRoute
   '/studio': typeof StudioIndexRoute
+  '/studio/$adId/ideas': typeof StudioAdIdIdeasRoute
+  '/studio/$adId/images': typeof StudioAdIdImagesRoute
+  '/studio/$adId/storyboard': typeof StudioAdIdStoryboardRoute
+  '/studio/$adId': typeof StudioAdIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -60,14 +99,48 @@ export interface FileRoutesById {
   '/how-it-works': typeof HowItWorksRoute
   '/pricing': typeof PricingRoute
   '/studio': typeof StudioRouteWithChildren
+  '/studio/$adId': typeof StudioAdIdRouteWithChildren
   '/studio/': typeof StudioIndexRoute
+  '/studio/$adId/ideas': typeof StudioAdIdIdeasRoute
+  '/studio/$adId/images': typeof StudioAdIdImagesRoute
+  '/studio/$adId/storyboard': typeof StudioAdIdStoryboardRoute
+  '/studio/$adId/': typeof StudioAdIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/how-it-works' | '/pricing' | '/studio' | '/studio/'
+  fullPaths:
+    | '/'
+    | '/how-it-works'
+    | '/pricing'
+    | '/studio'
+    | '/studio/$adId'
+    | '/studio/'
+    | '/studio/$adId/ideas'
+    | '/studio/$adId/images'
+    | '/studio/$adId/storyboard'
+    | '/studio/$adId/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/how-it-works' | '/pricing' | '/studio'
-  id: '__root__' | '/' | '/how-it-works' | '/pricing' | '/studio' | '/studio/'
+  to:
+    | '/'
+    | '/how-it-works'
+    | '/pricing'
+    | '/studio'
+    | '/studio/$adId/ideas'
+    | '/studio/$adId/images'
+    | '/studio/$adId/storyboard'
+    | '/studio/$adId'
+  id:
+    | '__root__'
+    | '/'
+    | '/how-it-works'
+    | '/pricing'
+    | '/studio'
+    | '/studio/$adId'
+    | '/studio/'
+    | '/studio/$adId/ideas'
+    | '/studio/$adId/images'
+    | '/studio/$adId/storyboard'
+    | '/studio/$adId/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -114,14 +187,69 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StudioIndexRouteImport
       parentRoute: typeof StudioRoute
     }
+    '/studio/$adId': {
+      id: '/studio/$adId'
+      path: '/$adId'
+      fullPath: '/studio/$adId'
+      preLoaderRoute: typeof StudioAdIdRouteImport
+      parentRoute: typeof StudioRoute
+    }
+    '/studio/$adId/': {
+      id: '/studio/$adId/'
+      path: '/'
+      fullPath: '/studio/$adId/'
+      preLoaderRoute: typeof StudioAdIdIndexRouteImport
+      parentRoute: typeof StudioAdIdRoute
+    }
+    '/studio/$adId/ideas': {
+      id: '/studio/$adId/ideas'
+      path: '/ideas'
+      fullPath: '/studio/$adId/ideas'
+      preLoaderRoute: typeof StudioAdIdIdeasRouteImport
+      parentRoute: typeof StudioAdIdRoute
+    }
+    '/studio/$adId/images': {
+      id: '/studio/$adId/images'
+      path: '/images'
+      fullPath: '/studio/$adId/images'
+      preLoaderRoute: typeof StudioAdIdImagesRouteImport
+      parentRoute: typeof StudioAdIdRoute
+    }
+    '/studio/$adId/storyboard': {
+      id: '/studio/$adId/storyboard'
+      path: '/storyboard'
+      fullPath: '/studio/$adId/storyboard'
+      preLoaderRoute: typeof StudioAdIdStoryboardRouteImport
+      parentRoute: typeof StudioAdIdRoute
+    }
   }
 }
 
+interface StudioAdIdRouteChildren {
+  StudioAdIdIdeasRoute: typeof StudioAdIdIdeasRoute
+  StudioAdIdImagesRoute: typeof StudioAdIdImagesRoute
+  StudioAdIdStoryboardRoute: typeof StudioAdIdStoryboardRoute
+  StudioAdIdIndexRoute: typeof StudioAdIdIndexRoute
+}
+
+const StudioAdIdRouteChildren: StudioAdIdRouteChildren = {
+  StudioAdIdIdeasRoute: StudioAdIdIdeasRoute,
+  StudioAdIdImagesRoute: StudioAdIdImagesRoute,
+  StudioAdIdStoryboardRoute: StudioAdIdStoryboardRoute,
+  StudioAdIdIndexRoute: StudioAdIdIndexRoute,
+}
+
+const StudioAdIdRouteWithChildren = StudioAdIdRoute._addFileChildren(
+  StudioAdIdRouteChildren,
+)
+
 interface StudioRouteChildren {
+  StudioAdIdRoute: typeof StudioAdIdRouteWithChildren
   StudioIndexRoute: typeof StudioIndexRoute
 }
 
 const StudioRouteChildren: StudioRouteChildren = {
+  StudioAdIdRoute: StudioAdIdRouteWithChildren,
   StudioIndexRoute: StudioIndexRoute,
 }
 
