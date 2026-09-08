@@ -47,7 +47,7 @@ export const ads: Ad[] = [
 ];
 
 export function findAd(id: string): Ad {
-  return ads.find((ad) => ad.id === id) ?? ads[0];
+  return ads.find((ad) => ad.id === id) ?? ads[0]!;
 }
 
 export const sourceImages = [
